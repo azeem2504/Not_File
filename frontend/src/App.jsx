@@ -316,7 +316,7 @@ function App() {
           NOTFILE
         </h1>
         <p className="text-center text-gray-500 text-sm mb-6">
-          (Share Files hassle-free using P2P!!)
+          (Share Files hassle-free *P2P*!!)
         </p>
 
         {/* Room Management  */}
