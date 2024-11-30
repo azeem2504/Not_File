@@ -8,10 +8,11 @@ dotenv.config()
 const app = express();
 
 const server = createServer(app);
-const io = new Server(server, {
-    cors: {
-        origin: process.env.CORS_ORIGIN || "*"
-    }
+const io = socketIo(server, {
+  cors: {
+    origin: "*", 
+    methods: ["GET", "POST"]
+  }
 });
 app.get("/", (req, res) => {
     res.send("Backend is running successfully!");
