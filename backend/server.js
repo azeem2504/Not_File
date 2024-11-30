@@ -8,9 +8,18 @@ dotenv.config()
 const app = express();
 
 const server = createServer(app);
+const frontendURL = 'https://not-file.onrender.com';
+
+// CORS middleware for HTTP requests
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', frontendURL);  // Specify the frontend URL here
+  res.header('Access-Control-Allow-Methods', 'GET, POST');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 const io = new Server(server, {
    cors: {
-    origin: "https://not-file.onrender.com", 
+    origin: frontendURL, 
     methods: ["GET", "POST"]
   }
 });
