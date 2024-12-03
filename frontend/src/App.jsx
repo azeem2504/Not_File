@@ -27,18 +27,28 @@ function App() {
     const socket = io(import.meta.env.VITE_BACKEND_URL);
     socketRef.current = socket;
 
-    const peer = new Peer(peerId, {
-      config: {
-        iceServers: [
-          { url: "turn:global.turn.twilio.com:3478?transport=udp" },
-          {
-            url: "turn:global.turn.twilio.com:3478?transport=udp",
-            username: "dc2d2894d5a9023620c467b0e71cfa6a35457e6679785ed6ae9856fe5bdfa269",
-            credential: "tE2DajzSJwnsSbc123",
-          },
-        ],
+    const peer = new Peer('peerId', {
+  config: {
+    iceServers: [
+      {
+        urls: 'turn:turn.netcocktail.com:3478',
+        username: 'webrtc',
+        credential: 'turnserver',
       },
-    });
+      {
+        urls: 'turn:23.21.150.121:3478',
+        username: 'example',
+        credential: 'example',
+      },
+      {
+        urls: 'turn:192.158.29.39:3478',
+        username: 'guest',
+        credential: 'guest',
+      }
+    ]
+  }
+});
+
     peerRef.current = peer;
 
     peer.on("open", (id) => {
