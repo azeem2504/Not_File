@@ -27,28 +27,8 @@ function App() {
     const socket = io(import.meta.env.VITE_BACKEND_URL);
     socketRef.current = socket;
 
-    const peer = new Peer('peerId', {
-  config: {
-    iceServers: [
-      {
-        urls: 'turn:turn.netcocktail.com:3478',
-        username: 'webrtc',
-        credential: 'turnserver',
-      },
-      {
-        urls: 'turn:23.21.150.121:3478',
-        username: 'example',
-        credential: 'example',
-      },
-      {
-        urls: 'turn:192.158.29.39:3478',
-        username: 'guest',
-        credential: 'guest',
-      }
-    ]
-  }
-});
-
+    const peer = new Peer()
+  
     peerRef.current = peer;
 
     peer.on("open", (id) => {
