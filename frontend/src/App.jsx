@@ -27,8 +27,13 @@ function App() {
     const socket = io(import.meta.env.VITE_BACKEND_URL);
     socketRef.current = socket;
 
-    const peer = new Peer()
-  
+const peer = new Peer(peerId, {
+      config: {
+        iceServers: [
+          { urls: "stun:stun.l.google.com:19302" },
+        ]
+      },
+    });  
     peerRef.current = peer;
 
     peer.on("open", (id) => {
