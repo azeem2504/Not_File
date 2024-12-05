@@ -28,12 +28,16 @@ function App() {
     socketRef.current = socket;
 
 const peer = new Peer(peerId, {
-      config: {
-        iceServers: [
-          { urls: "turn:122.180.176.155:3478" },
-        ]
-      },
-    });  
+  config: {
+    iceServers: [
+      {
+        urls: "turn:122.180.176.155:3478", 
+        username: "azeem5",  
+        credential: "harry111" 
+      }
+    ]
+  }
+}); 
     peerRef.current = peer;
 
     peer.on("open", (id) => {
