@@ -30,7 +30,7 @@ function App() {
 const peer = new Peer(peerId, {
       config: {
         iceServers: [
-          { urls: "stun:stun.l.google.com:19302" },
+          { urls: "turn:122.180.176.155:3478" },
         ]
       },
     });  
