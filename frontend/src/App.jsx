@@ -27,13 +27,24 @@ function App() {
     const socket = io(import.meta.env.VITE_BACKEND_URL);
     socketRef.current = socket;
 
-const peer = new Peer(peerId, {
+// const peer = new Peer(peerId, {
+//   config: {
+//     iceServers: [
+//       {
+//         urls: "turn:122.180.176.155:3478", 
+//         username: "azeem5",  
+//         credential: "harry111" 
+//       }
+//     ]
+//   }
+// }); 
+    const peer = new Peer(peerId, {
   config: {
     iceServers: [
       {
-        urls: "turn:122.180.176.155:3478", 
-        username: "azeem5",  
-        credential: "harry111" 
+        urls: "turn:coturn.net:3478", 
+        username: "test",  
+        credential: "test123" 
       }
     ]
   }
